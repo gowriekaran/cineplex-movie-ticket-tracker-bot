@@ -1,0 +1,11 @@
+CHROME_DRIVER_PATH = "H:\chromedriver.exe"
+INITIAL_LOAD_DELAY = 0
+LOOP_REPEAT_DELAY = 15
+MOVIE_URL = "https://www.cineplex.com/Movie/spiderman-no-way-home"
+MOVIE_TICKETS_ON_SALE_MESSAGE = "Spider-Man: No Way Home tickets now on sale!"
+MOVIE_TICKETS_NOT_ON_SALE_MESSAGE = "No Spidey tickets yet :("
+NEGATIVE_SOUND_NOTIFICATION_DURATION = 500
+NEGATIVE_SOUND_NOTIFICATION_FREQUENCY = 750
+TARGET_ELEMENT_XPATH = '//*[@id="__next"]/div[3]/div[7]/div[1]/movie-showtimes-table'
+POSITIVE_SOUND_NOTIFICATION_DURATION = 10000
+POSITIVE_SOUND_NOTIFICATION_FREQUENCY = 300

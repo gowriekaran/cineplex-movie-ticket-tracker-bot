@@ -1,29 +1,28 @@
 import time
 import winsound
+import variables
 from colorama import Fore
-from colorama import Style
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 
-PATH  = "H:\chromedriver.exe"
-browser = webdriver.Chrome(PATH)
+browser = webdriver.Chrome(variables.CHROME_DRIVER_PATH)
 
-browser.get("https://www.cineplex.com/Movie/spiderman-no-way-home")
+browser.get(variables.MOVIE_URL)
 
-time.sleep(3)
+time.sleep(variables.INITIAL_LOAD_DELAY)
 
-frequency = 1500
-duration = 500
-ticketsAvailable = False
+isTicketsAvailable = False
 
-while not ticketsAvailable:
+while not isTicketsAvailable:
     try:
-        browser.find_element(By.XPATH, '//*[@id="__next"]/div[3]/div[7]/div[1]/movie-showtimes-table')
-        print("Spider-Man: No Way Home tickets now on sale!")
-        winsound.Beep(frequency, duration)
+        browser.find_element(By.XPATH, variables.TARGET_ELEMENT_XPATH)
+        print(variables.MOVIE_TICKETS_ON_SALE_MESSAGE)
+        winsound.Beep(variables.POSITIVE_SOUND_NOTIFICATION_FREQUENCY, variables.POSITIVE_SOUND_NOTIFICATION_DURATION)
+        isTicketsAvailable = True
     except:
-        print(f'{Fore.RED}No Spidey tickets yet :(')
-        winsound.Beep(500, 100)
+        print(f'{Fore.RED}{variables.MOVIE_TICKETS_NOT_ON_SALE_MESSAGE}')
+        winsound.Beep(variables.NEGATIVE_SOUND_NOTIFICATION_FREQUENCY, variables.NEGATIVE_SOUND_NOTIFICATION_DURATION)
 
-    # time.sleep(3)
+    time.sleep(variables.LOOP_REPEAT_DELAY)
     browser.refresh()
+browser.close()
