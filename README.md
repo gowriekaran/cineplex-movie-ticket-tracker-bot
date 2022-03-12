@@ -1,4 +1,4 @@
-# Cineplex Canada Movie Ticket Tracker Bot
+# Python Cineplex Canada Movie Ticket Tracker Bot
 Purpose: This software is used to track the availability of specific movie tickets. 
 
 Disclaimer: This software is not a scalper bot. There are no purchasing abilities within this software. It's only purpose is notify the end-user via sound notification that the movie ticket(s) they are interested in are now on sale, and right after that, it shuts down automatically.
